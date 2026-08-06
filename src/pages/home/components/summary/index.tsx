@@ -2,6 +2,7 @@ import { useRef } from "react";
 import styles from "./styles.module.css";
 import sosImage from "../../../../assets/sos/sos-logo.png";
 import wavesImage from "../../../../assets/waves/waves-logo.webp";
+import { Link } from "react-router-dom";
 
 interface Project {
   title: string;
@@ -74,9 +75,9 @@ export function Summary() {
 
       <div className={styles.projectsContainer} ref={carouselRef}>
         {projects.map((project, index) => (
-          <a
+          <Link
             key={index}
-            href={project.link}
+            to={project.link}
             className={styles.projectCard}
             style={
               {
@@ -95,7 +96,7 @@ export function Summary() {
               <h4>{project.title}</h4>
               <p>{project.description}</p>
             </div>
-          </a>
+          </Link>
         ))}
       </div>
     </div>
