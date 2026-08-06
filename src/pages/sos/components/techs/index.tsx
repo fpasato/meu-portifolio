@@ -12,7 +12,7 @@ import apexchartsLogo from "../../../../assets/icons/apexcharts.png";
 import postgreesqlLogo from "../../../../assets/icons/postgreesql.png";
 
 
-const techLogos = {
+const techLogos: Record<string, string> = {
   react: reactLogo,
   electron: electronLogo,
   nodejs: nodejsLogo,
@@ -23,7 +23,7 @@ const techLogos = {
   postgresql: postgreesqlLogo,
 };    
 
-const techs = [
+const techs: string[] = [
     "React",
     "Electron",
     "Node.js",

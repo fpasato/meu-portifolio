@@ -12,7 +12,7 @@ import ffmpegLogo from "../../../../assets/waves/techs/ffmpeg.png";
 import zustandLogo from "../../../../assets/waves/techs/zustand.svg";
 
 
-const techLogos = {
+const techLogos: Record<string, string> = {
   react: reactLogo,
   electron: electronLogo,
   sqlite: sqliteLogo,
@@ -23,7 +23,7 @@ const techLogos = {
   zustand: zustandLogo,
 };
 
-const techs = [
+const techs: string[] = [
     "React",
     "Electron",
     "SQLite",

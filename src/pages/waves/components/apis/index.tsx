@@ -10,7 +10,7 @@ import ghosteryLogo from "../../../../assets/waves/api/ghostery.png";
 
 
 
-const apisLogos = {
+const apisLogos: Record<string, string> = {
   "radio browser api": radioBrowserApiLogo,
   "lrclib": lrclibApiLogo,
   "ytdlp": ytdlpApiLogo,
@@ -19,7 +19,7 @@ const apisLogos = {
 
 };
 
-const apis = [
+const apis: string[] = [
     "Radio Browser API",
     "LRCLIB",
     "YT-DLP",
@@ -27,7 +27,7 @@ const apis = [
     "Ghostery AdBlocker"
 ];
 
-const links = {
+const links: Record<string, string> = {
     "Radio Browser API": "https://www.radio-browser.info/",
     "LRCLIB": "https://lrclib.net/",
     "YT-DLP": "https://github.com/yt-dlp/yt-dlp",
