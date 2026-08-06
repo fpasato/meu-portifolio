@@ -1,0 +1,27 @@
+.techsContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+
+    padding: 1rem;
+    width: 100%;
+}
+
+
+.techItem {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: fit-content;
+    padding: .6rem;
+    background-color: #2b345146;
+    border: 1px solid #4f57708c;
+    border-radius: 8px;
+}
+
+.techItem img {
+    width: 50px;
+    height: 50px;
+}

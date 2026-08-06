@@ -1,0 +1,105 @@
+.sosProject {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+  background-color: #0A0C0E;
+  color: #fff;
+  background-image: url("../../assets/sos/bg.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: top;
+}
+
+.sosLogo {
+  border: 1px solid #ff2626;
+  border-radius: 0.8rem;
+}
+
+.sosProjectSection {
+  display: grid;
+  grid-template-columns: 0.6fr 1fr;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.sosProjectInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: justify;
+  gap: 1rem;
+
+  & img {
+    width: 100px;
+    height: auto;
+  }
+}
+
+.sosProjectInfo h2 {
+  font-size: 4rem;
+}
+
+.sosProjectInfo p {
+  font-size: 1rem;
+}
+
+.actions {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+}
+
+.githubButton,
+.downloadButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 1.4rem;
+  font-size: 1.2rem;
+  border-radius: 0.8rem;
+  border: 1px solid #ff2626;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+
+  &:hover {
+    filter: brightness(0.9);
+    transform: translateY(-2px) translateX(2px);
+  }
+}
+
+.githubButton {
+  background-color: #ff2626;
+  color: white;
+}
+
+.downloadButton {
+  background-color: transparent;
+  color: #5a6066;
+  border: 1px solid #5a6066;
+}
+
+.sosProjectImage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.8rem;
+
+  & img {
+    width: 100%;
+    height: auto;
+
+  }
+}
+
+.backButton {
+  color: #ff2626;
+  text-decoration: none;
+  margin-bottom: 2rem;
+
+  &:hover {
+    text-shadow: 0 0 10px #ff2626, 0 0 20px #ff2626, 0 0 30px #ff2626;
+  }
+}

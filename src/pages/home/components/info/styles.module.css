@@ -1,0 +1,127 @@
+.infoContainer {
+  background: var(--surface);
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-shrink: 0;
+  padding: 1.5rem;
+  gap: 1.5rem;
+  min-height: 0;
+}
+
+.leftPanel {
+  flex: 1.1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.7rem;
+}
+
+.leftPanel h2 {
+  color: var(--text);
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.leftPanel h2::before {
+  content: "";
+  display: block;
+  width: 8px;
+  height: 8px;
+  background: var(--primary);
+  border-radius: 50%;
+}
+
+.leftPanel p {
+  color: var(--text);
+  opacity: 0.8;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.techTitle {
+  color: var(--primary);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0.3rem 0 0;
+}
+
+.techRow {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.techRow img {
+  width: 40px;
+  height: auto;
+  object-fit: contain;
+  padding: 0.35rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.techRow img:hover {
+  border-color: var(--primary);
+  transform: translateY(-2px);
+}
+
+.divider {
+  width: 1px;
+  background: var(--border);
+  flex-shrink: 0;
+}
+
+.rightPanel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  justify-content: center;
+}
+
+.block h3 {
+  color: var(--primary);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0 0 0.6rem;
+}
+
+.block ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.block li {
+  font-size: 0.85rem;
+  color: var(--text);
+  opacity: 0.85;
+  padding-left: 1rem;
+  position: relative;
+  line-height: 1.4;
+}
+
+.block li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+}

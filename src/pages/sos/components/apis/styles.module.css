@@ -1,0 +1,37 @@
+.techsContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+
+    padding: 1rem;
+    width: 100%;
+}
+
+
+.techItem {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: fit-content;
+    padding: .6rem;
+    background-color: #2b345146;
+    border: 1px solid #4f57708c;
+    border-radius: 8px;
+
+    color: var(--text);
+    text-decoration: none;
+}
+
+.techItem:hover {
+    background-color: #2b34516b;
+    color: #ff2626;
+    border-color: #ff2626;
+    text-shadow: 0 0 10px #ff2626;
+}
+
+.techItem img {
+    width: 50px;
+    height: 50px;
+}

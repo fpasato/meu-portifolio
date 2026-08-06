@@ -1,0 +1,43 @@
+.resources {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.resourceItemHeader {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  & svg {
+    font-size: 4rem;
+    color: #ff2626;
+  }
+}
+
+.resourceItem {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 2rem;
+  background-color: #07080b;
+  border-radius: 0.5rem;
+  border: 1px solid #333;
+}
+
+.resourceItem h3 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+.resourceItem ul { 
+  list-style: disc; 
+  list-style-position: inside; 
+  text-align: left; 
+}
+
+.resourceItem ul li::marker {
+  color: #ff2626; 
+  font-size: 1.2rem;
+}

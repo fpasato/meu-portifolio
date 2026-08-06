@@ -1,0 +1,12 @@
+.homeContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+  gap: 1rem;
+  padding: 2rem;
+  color: var(--text);
+  background-color: var(--background);
+  overflow: hidden;
+  box-sizing: border-box;
+}

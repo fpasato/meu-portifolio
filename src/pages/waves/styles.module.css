@@ -1,0 +1,173 @@
+.wavesProject {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  background-color: #030A17;
+  color: var(--text);
+  width: 100%;
+}
+
+.section {
+  display: grid;
+  grid-template-columns: 0.8fr 1fr;
+  gap: 2rem;
+  padding: 2rem;
+  width: 100%;
+}
+
+.resumeContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: justify;
+  padding: 1rem;
+
+  background-color: #030a17;
+}
+
+.resumeContainer h1 {
+  font-size: 2.8rem;
+  margin-bottom: 1rem;
+}
+
+.resumeContainer h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.resumeContainer p {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.resumeContainer img {
+  width: 100px;
+  height: auto;
+
+  border: 1px solid #7226ff;
+  border-radius: 10px;
+}
+
+.imageContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+
+  width: 100%;
+
+  & img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.actions {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+}
+
+
+.githubButton,
+.downloadButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 1.4rem;
+  font-size: 1.2rem;
+  border-radius: 0.8rem;
+  border: 1px solid #7226ff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+
+  &:hover {
+    filter: brightness(0.9);
+    transform: translateY(-2px) translateX(2px);
+  }
+}
+
+.githubButton {
+  background-color: #7226ff;
+  color: white;
+}
+
+.downloadButton {
+  background-color: transparent;
+  color: #5a6066;
+  border: 1px solid #5a6066;
+}
+
+.backButton {
+  color: #7226ff;
+  text-decoration: none;
+  margin-bottom: 2rem;
+
+  &:hover {
+    color: #ff2626;
+  }
+}
+
+
+
+
+.githubContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+  color: #fff;
+  border: 1px solid #455A64;
+  border-radius: 0.8rem;
+
+  margin-bottom: 2rem;
+}
+
+.githubIcon {
+  width: 40px;
+  height: auto;
+}
+.githubInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  & h4 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  & p {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+}
+
+.githubLink {
+  padding: 0.8rem 1.6rem;
+  background-color: #7226ff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 0.8rem;
+
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+ 
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background-color: #3b1384;
+    color: #fff;
+
+    transform: translate(2px, -2px);
+  }
+}
