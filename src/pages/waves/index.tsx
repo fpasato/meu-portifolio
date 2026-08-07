@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styles from "./styles.module.css";
 // import { Header } from "../../components/Header";
 import { About } from "./components/about/about";
@@ -14,13 +15,13 @@ export function WavesProject() {
     <div className={styles.wavesProject}>
       <section className={styles.section}>
         <div className={styles.resumeContainer}>
-          <a href="/" className={styles.backButton}>
+          <Link to="/" className={styles.backButton}>
             ← Voltar para Projetos
-          </a>
+          </Link>
 
           <img src={logo} alt="Logo Waves Desktop" />
           <h1>
-            <span style={{ color: "#7226ffff" }}>Waves</span> Desktop
+            <span style={{ color: "var(--primary)" }}>Waves</span> Desktop
           </h1>
           <h3>Player de mídia completo para Windows</h3>
           <p>

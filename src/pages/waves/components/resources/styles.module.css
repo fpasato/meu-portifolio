@@ -22,7 +22,7 @@
 .resourceItem svg {
   width: 2rem;
   height: 2rem;
-  color: #7226ff;
+  color: var(--primary);
 }
 
 .resourceItem h2 {

@@ -26,9 +26,10 @@
 
 .techItem:hover {
     background-color: #2b34516b;
-    color: #7226ff;
-    border-color: #7226ff;
-    text-shadow: 0 0 10px #7226ff;
+    color: var(--primary);
+    border-color: var(--primary);
+    text-shadow: 0 0 10px var(--primary);
+    box-shadow: 0 0 10px var(--primary);
 }
 
 .techItem img {

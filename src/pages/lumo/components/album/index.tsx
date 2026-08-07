@@ -3,32 +3,26 @@ import { createPortal } from "react-dom";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import styles from "./styles.module.css";
 
-// SOS Manager
-import manager1 from "../../../../assets/sos/sos-manager/sos-1.png";
-import manager2 from "../../../../assets/sos/sos-manager/sos-2.png";
-import manager3 from "../../../../assets/sos/sos-manager/sos-3.png";
-import manager4 from "../../../../assets/sos/sos-manager/sos-4.png";
-import manager5 from "../../../../assets/sos/sos-manager/sos-5.png";
-import manager6 from "../../../../assets/sos/sos-manager/sos-6.png";
-import manager7 from "../../../../assets/sos/sos-manager/sos-7.png";
+import lumo1 from "../../../../assets/lumo/lumo-1.png";
+import lumo2 from "../../../../assets/lumo/lumo-2.png";
+import lumo4 from "../../../../assets/lumo/lumo-4.png";
+import lumo5 from "../../../../assets/lumo/lumo-5.png";
+import lumo6 from "../../../../assets/lumo/lumo-6.png";
+import lumo7 from "../../../../assets/lumo/lumo-7.png";
+import lumo8 from "../../../../assets/lumo/lumo-8.png";
+import lumo9 from "../../../../assets/lumo/lumo-9.png";
+import lumo10 from "../../../../assets/lumo/lumo-10.png";
+import lumo11 from "../../../../assets/lumo/lumo-11.png";
+import lumo12 from "../../../../assets/lumo/lumo-12.png";
 
-// SOS Alerta (mobile)
-import mobile1 from "../../../../assets/sos/sos-app/ss1.png";
-import mobile2 from "../../../../assets/sos/sos-app/ss2.png";
-import mobile3 from "../../../../assets/sos/sos-app/ss3.png";
-import mobile4 from "../../../../assets/sos/sos-app/ss4.png";
-
-const managerImages = [
-  manager1, manager2, manager3, manager4, manager5,
-  manager6, manager7,
+const images = [
+  lumo1, lumo2, lumo4, lumo5, lumo6,
+  lumo7, lumo8, lumo9, lumo10, lumo11, lumo12,
 ];
-
-const mobileImages = [mobile1, mobile2, mobile3, mobile4];
 
 const VISIBLE_COUNT = 5;
 
 type LightboxState = {
-  images: string[];
   index: number;
 };
 
@@ -37,16 +31,16 @@ function useLightbox() {
 
   const goPrev = useCallback(() => {
     setState((s) =>
-      s ? { ...s, index: (s.index - 1 + s.images.length) % s.images.length } : s
+      s ? { index: (s.index - 1 + images.length) % images.length } : s
     );
   }, []);
 
   const goNext = useCallback(() => {
-    setState((s) => (s ? { ...s, index: (s.index + 1) % s.images.length } : s));
+    setState((s) => (s ? { index: (s.index + 1) % images.length } : s));
   }, []);
 
-  const open = useCallback((images: string[], index: number) => {
-    setState({ images, index });
+  const open = useCallback((index: number) => {
+    setState({ index });
   }, []);
 
   const close = useCallback(() => setState(null), []);
@@ -67,19 +61,16 @@ function useLightbox() {
   return { state, open, close, goPrev, goNext };
 }
 
-type GallerySectionProps = {
-  title: string;
-  images: string[];
-  onOpen: (images: string[], index: number) => void;
-};
+export function Album() {
+  const { state, open, close, goPrev, goNext } = useLightbox();
 
-function GallerySection({ title, images, onOpen }: GallerySectionProps) {
   const visible = images.slice(0, VISIBLE_COUNT);
   const remaining = images.length - VISIBLE_COUNT;
 
   return (
-    <div className={styles.section}>
-      <h3 className={styles.sectionTitle}>{title}</h3>
+    <div className={styles.albumContainer}>
+      <h2>Galeria de screenshots</h2>
+
       <div className={styles.album}>
         {visible.map((src, index) => {
           const isLastVisible = index === VISIBLE_COUNT - 1;
@@ -89,9 +80,9 @@ function GallerySection({ title, images, onOpen }: GallerySectionProps) {
             <div
               key={index}
               className={styles.thumbWrapper}
-              onClick={() => onOpen(images, index)}
+              onClick={() => open(index)}
             >
-              <img src={src} alt={`${title} ${index + 1}`} className={styles.thumb} />
+              <img src={src} alt={`Screenshot ${index + 1}`} className={styles.thumb} />
               {showMoreOverlay && (
                 <div className={styles.moreOverlay}>+{remaining}</div>
               )}
@@ -99,17 +90,6 @@ function GallerySection({ title, images, onOpen }: GallerySectionProps) {
           );
         })}
       </div>
-    </div>
-  );
-}
-
-export function Album() {
-  const { state, open, close, goPrev, goNext } = useLightbox();
-
-  return (
-    <div className={styles.albumContainer}>
-      <GallerySection title="SOS Manager (desktop)" images={managerImages} onOpen={open} />
-      <GallerySection title="SOS Alerta (Mobile)" images={mobileImages} onOpen={open} />
 
       {state &&
         createPortal(
@@ -126,7 +106,7 @@ export function Album() {
             </button>
 
             <img
-              src={state.images[state.index]}
+              src={images[state.index]}
               alt={`Screenshot ${state.index + 1}`}
               className={styles.lightboxImage}
               onClick={(e) => e.stopPropagation()}
@@ -144,7 +124,7 @@ export function Album() {
             </button>
 
             <div className={styles.lightboxCounter}>
-              {state.index + 1} / {state.images.length}
+              {state.index + 1} / {images.length}
             </div>
           </div>,
           document.body
