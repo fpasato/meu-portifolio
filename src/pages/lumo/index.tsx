@@ -28,7 +28,7 @@ export function LumoProject() {
           <div className={styles.actions}>
             <a
               className={styles.githubButton}
-              href="https://github.com/fpasato/teste-electron"
+              href="https://github.com/fpasato/Simulador-Banco"
               target="_blank"
               rel="noopener noreferrer"
             >

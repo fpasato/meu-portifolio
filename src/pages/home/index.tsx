@@ -1,5 +1,4 @@
 import styles from "./styles.module.css";
-
 import { Info } from "./components/info";
 import { Summary } from "./components/summary";
 

@@ -41,7 +41,7 @@
     justify-content: space-between;
     gap: 1rem;
 
-    background-color: #0B0C0F;
+    background-color: #050201;
     border-radius: 10px;
     border: 1px solid #333;
     padding: 0.6rem;
@@ -70,4 +70,45 @@
         font-size: 0.875rem;
         color: #666;
     }
+}
+
+/* ========== Responsive ========== */
+@media (max-width: 768px) {
+  .about {
+    padding: 1rem;
+  }
+
+  .aboutContent {
+    width: 100%;
+    padding: 1.2rem;
+  }
+
+  .aboutContent h1 {
+    font-size: 1.5rem;
+  }
+
+  .aboutContent p {
+    font-size: 0.9rem;
+    text-align: left;
+  }
+
+  .disclaimer {
+    flex-direction: column;
+    width: 100%;
+    padding: 1rem;
+    text-align: center;
+  }
+
+  .disclaimer svg {
+    width: 40px;
+  }
+
+  .disclaimer p {
+    width: 100%;
+    margin-left: 0;
+    padding: 0.8rem 0;
+    border-right: none;
+    border-bottom: 1px solid #ff2626;
+    text-align: center;
+  }
 }

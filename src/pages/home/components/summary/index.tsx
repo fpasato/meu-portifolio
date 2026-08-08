@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import styles from "./styles.module.css";
+
+
 import {
   FaChevronLeft,
   FaChevronRight,

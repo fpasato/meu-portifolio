@@ -36,3 +36,20 @@
     
     }
 }
+
+/* ========== Responsive ========== */
+@media (max-width: 768px) {
+  .resources {
+    padding: 0;
+  }
+
+  .resourcesList {
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+    gap: 1rem;
+  }
+
+  .resource {
+    gap: 0.8rem;
+  }
+}

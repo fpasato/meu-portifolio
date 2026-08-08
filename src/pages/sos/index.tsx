@@ -30,7 +30,7 @@ export function SosProject() {
           <div className={styles.actions}>
             <a
               className={styles.githubButton}
-              href="https://github.com/fpasato/teste-electron"
+              href="https://github.com/fpasato/Sos-project"
               target="_blank"
               rel="noopener noreferrer"
             >

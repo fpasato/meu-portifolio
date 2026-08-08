@@ -84,3 +84,33 @@
     color: #fff;
     font-size: 0.9rem;
 }
+
+/* ========== Responsive ========== */
+@media (max-width: 768px) {
+  .albumContainer {
+    margin: 1rem 0;
+  }
+
+  .album {
+    padding: 0.5rem 0;
+    gap: 0.8rem;
+  }
+
+  .album img {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    aspect-ratio: 4/3;
+  }
+
+  .lightboxImage {
+    max-width: 95vw;
+    max-height: 80vh;
+  }
+
+  .lightboxNavLeft,
+  .lightboxNavRight {
+    font-size: 1.5rem;
+    padding: 0.5rem;
+  }
+}

@@ -5,10 +5,6 @@
 
   background-color: #0A0C0E;
   color: #fff;
-  background-image: url("../../assets/lumo/bg.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: top;
 }
 
 .sosLogo {
@@ -21,6 +17,10 @@
   grid-template-columns: 0.6fr 1fr;
   gap: 2rem;
   padding: 2rem;
+
+  background-image: url("../../assets/lumo/bg.png");
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .lumoProjectInfo {
@@ -102,5 +102,61 @@
 
   &:hover {
     text-shadow: 0 0 10px #9472FF, 0 0 20px #9472FF, 0 0 30px #9472FF;
+  }
+}
+
+/* ========== Responsive ========== */
+@media (max-width: 768px) {
+  .lumoProjectSection {
+    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem 1rem;
+    gap: 1.5rem;
+  }
+
+  .lumoProjectInfo {
+    width: 100%;
+    align-items: center;
+    text-align: center;
+  }
+
+  .lumoProjectInfo h2 {
+    font-size: 2.2rem;
+  }
+
+  .lumoProjectInfo h4 {
+    font-size: 1.1rem;
+  }
+
+  .lumoProjectInfo p {
+    font-size: 0.9rem;
+    text-align: center;
+  }
+
+  .lumoProjectImage {
+    width: 100%;
+  }
+
+  .actions {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .githubButton,
+  .downloadButton {
+    width: 100%;
+    padding: 0.9rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .lumoProjectInfo h2 {
+    font-size: 1.8rem;
+  }
+
+  .lumoProjectSection {
+    padding: 1rem 0.8rem;
   }
 }

@@ -67,3 +67,39 @@
     color: #b5bf1fca;
     font-size: 0.9rem;
 }
+
+/* ========== Responsive ========== */
+@media (max-width: 768px) {
+  .about {
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .infoSection {
+    grid-template-columns: 1fr;
+    width: 100%;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .infoTitle {
+    justify-content: center;
+    font-size: 1.1rem;
+  }
+
+  .infoAbout {
+    padding: 0.5rem 0;
+    align-items: center;
+  }
+
+  .disclaimerSection {
+    width: 100%;
+    padding: 0.9rem;
+    align-items: center;
+    text-align: center;
+  }
+
+  .disclaimerTitle {
+    justify-content: center;
+  }
+}

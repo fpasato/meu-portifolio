@@ -116,3 +116,37 @@
   color: #fff;
   font-size: 0.9rem;
 }
+
+/* ========== Responsive ========== */
+@media (max-width: 768px) {
+  .section {
+    padding: 0.8rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.1rem;
+  }
+
+  .album {
+    padding: 0.5rem 0;
+    gap: 0.8rem;
+  }
+
+  .thumb {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    aspect-ratio: 4/3;
+  }
+
+  .lightboxImage {
+    max-width: 95vw;
+    max-height: 80vh;
+  }
+
+  .lightboxNavLeft,
+  .lightboxNavRight {
+    font-size: 1.5rem;
+    padding: 0.5rem;
+  }
+}
