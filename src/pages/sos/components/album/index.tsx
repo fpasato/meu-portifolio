@@ -19,7 +19,7 @@ import mobile4 from "../../../../assets/sos/sos-app/ss4.png";
 
 const managerImages = [
   manager1, manager2, manager3, manager4, manager5,
-  manager6, manager7,
+  manager6,
 ];
 
 const mobileImages = [mobile1, mobile2, mobile3, mobile4];
