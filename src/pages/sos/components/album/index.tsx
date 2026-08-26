@@ -10,7 +10,6 @@ import manager3 from "../../../../assets/sos/sos-manager/sos-3.png";
 import manager4 from "../../../../assets/sos/sos-manager/sos-4.png";
 import manager5 from "../../../../assets/sos/sos-manager/sos-5.png";
 import manager6 from "../../../../assets/sos/sos-manager/sos-6.png";
-import manager7 from "../../../../assets/sos/sos-manager/sos-7.png";
 
 // SOS Alerta (mobile)
 import mobile1 from "../../../../assets/sos/sos-app/ss1.png";
