@@ -1,31 +1,54 @@
 .homeContainer {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  min-height: 100vh;
+  color: var(--text);
+  box-sizing: border-box;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: var(--bg);
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  width: 100%;
-  gap: 1rem;
-  padding: 2rem;
-  color: var(--text);
-  background-color: var(--background);
-  overflow: hidden;
-  box-sizing: border-box;
 }
 
-/* ========== Responsive ========== */
-@media (max-width: 768px) {
-  .homeContainer {
-    padding: 1.5rem 1rem;
-    gap: 1.5rem;
-    height: auto;
-    min-height: 100vh;
-    overflow-y: auto;
-    overflow-x: hidden;
-  }
+
+.homeContainer::-webkit-scrollbar {
+  width: 10px;
 }
 
-@media (max-width: 480px) {
-  .homeContainer {
-    padding: 1rem;
-    gap: 1rem;
-  }
+.homeContainer::-webkit-scrollbar-track {
+  background: var(--bg);
 }
+
+.homeContainer::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 10px;
+  border: 2px solid var(--bg);
+}
+
+.homeContainer::-webkit-scrollbar-thumb:hover {
+  background: var(--border-strong);
+}
+
+.homeContainer {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border) var(--bg);
+}
+
+.bg[data-active="true"] .gas {
+  opacity: 0.9;
+  filter: blur(70px) saturate(1.3);
+  transform: scale(1.06);
+}
+
+.bg[data-active="true"] .blobA { animation-duration: 14s; }
+.bg[data-active="true"] .blobB { animation-duration: 16s; }
+.bg[data-active="true"] .blobC { animation-duration: 18s; }
+.bg[data-active="true"] .blobD { animation-duration: 15s; }

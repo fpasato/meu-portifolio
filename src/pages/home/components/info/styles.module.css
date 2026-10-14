@@ -1,162 +1,324 @@
-.infoContainer {
-  background: var(--surface);
-  border-radius: 16px;
-  border: 1px solid var(--border);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-shrink: 0;
-  padding: 1.5rem;
-  gap: 1.5rem;
-  min-height: 0;
-}
+.section {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  padding: 4rem 6vw;
 
-.leftPanel {
-  flex: 1.1;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 0.7rem;
+  gap: 4rem;
+
+  color: var(--text);
 }
 
-.leftPanel h2 {
-  color: var(--text);
-  font-size: 1.1rem;
-  font-weight: 600;
-  margin: 0;
-  display: flex;
+.hero {
+  display: grid;
+  grid-template-columns: auto 1fr;
   align-items: center;
-  gap: 0.6rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
+  gap: clamp(2rem, 5vw, 4rem);
+
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
 }
 
-.leftPanel h2::before {
-  content: "";
-  display: block;
-  width: 8px;
-  height: 8px;
-  background: var(--primary);
+.avatarWrap {
+  position: relative;
+  width: clamp(140px, 16vw, 180px);
+  height: clamp(140px, 16vw, 180px);
+  opacity: 0;
+  animation: fadeIn 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.1s forwards;
+}
+
+.avatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   border-radius: 50%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 5px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.leftPanel p {
-  color: var(--text);
-  opacity: 0.8;
-  font-size: 0.92rem;
-  line-height: 1.6;
-  margin: 0;
+.avatarWrap:hover .avatar {
+  transform: scale(1.03);
 }
 
-.techTitle {
-  color: var(--primary);
-  font-size: 0.8rem;
-  font-weight: 600;
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+}
+
+.eyebrow {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin: 0.3rem 0 0;
+  color: var(--primary);
+
+  opacity: 0;
+  animation: fadeUp 0.6s ease 0.2s forwards;
+}
+
+.name {
+  font-size: clamp(2rem, 4.5vw, 3.25rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+  color: var(--text);
+  margin: 0;
+
+  opacity: 0;
+  animation: fadeUp 0.6s ease 0.3s forwards;
+}
+
+.name span {
+  background: linear-gradient(
+    135deg,
+    var(--primary) 0%,
+    var(--secondary) 55%,
+    var(--accent) 100%
+  );
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 7s ease infinite;
+}
+
+.role {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  margin: 0;
+
+  opacity: 0;
+  animation: fadeUp 0.6s ease 0.4s forwards;
+}
+
+.sep {
+  color: var(--primary);
+  margin: 0 6px;
+  opacity: 0.5;
+}
+
+.bio {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  max-width: 620px;
+  margin: 6px 0 0;
+
+  opacity: 0;
+  animation: fadeUp 0.6s ease 0.5s forwards;
+}
+
+.bio strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* =========================================================
+   STACK
+   ========================================================= */
+.stack {
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  opacity: 0;
+  animation: fadeUp 0.6s ease 0.6s forwards;
+}
+
+.stackLabel {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--text-muted);
 }
 
 .techRow {
   display: flex;
-  gap: 0.5rem;
   flex-wrap: wrap;
+  gap: 12px;
 }
 
-.techRow img {
-  width: 40px;
-  height: auto;
-  object-fit: contain;
-  padding: 0.35rem;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  transition: border-color 0.2s ease, transform 0.2s ease;
-}
-
-.techRow img:hover {
-  border-color: var(--primary);
-  transform: translateY(-2px);
-}
-
-.divider {
-  width: 1px;
-  background: var(--border);
-  flex-shrink: 0;
-}
-
-.rightPanel {
-  flex: 1;
+.techItem {
   display: flex;
   flex-direction: column;
-  gap: 1.1rem;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+
+  opacity: 0;
+  animation: fadeIn 0.5s ease forwards;
+}
+
+.techIcon {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
   justify-content: center;
+
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+
+  transition:
+    transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
-.block h3 {
-  color: var(--primary);
-  font-size: 0.85rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin: 0 0 0.6rem;
+.techIcon img {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+  filter: grayscale(0.5) brightness(0.9);
+  transition: filter 0.25s ease;
 }
 
-.block ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
+.techName {
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-align: center;
+  letter-spacing: 0.01em;
+  transition: color 0.25s ease;
+  white-space: nowrap;
 }
 
-.block li {
-  font-size: 0.85rem;
+.techItem:hover .techIcon {
+  transform: translateY(-4px);
+  border-color: var(--primary);
+  background: var(--surface-hover);
+  box-shadow: 0 12px 24px -8px color-mix(in srgb, var(--primary) 50%, transparent);
+}
+
+.techItem:hover .techIcon img {
+  filter: grayscale(0) brightness(1.1);
+}
+
+.techItem:hover .techName {
   color: var(--text);
-  opacity: 0.85;
-  padding-left: 1rem;
-  position: relative;
-  line-height: 1.4;
 }
 
-.block li::before {
-  content: "•";
-  position: absolute;
-  left: 0;
-  color: var(--primary);
+/* =========================================================
+   ANIMAÇÕES
+   ========================================================= */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-/* ========== Responsive ========== */
-@media (max-width: 768px) {
-  .infoContainer {
-    flex-direction: column;
-    padding: 1.5rem;
-    gap: 1.5rem;
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes gradientShift {
+  0%, 100% { background-position: 0% 50%; }
+  50%      { background-position: 100% 50%; }
+}
+
+/* =========================================================
+   RESPONSIVO
+   ========================================================= */
+@media (max-width: 900px) {
+  .section {
+    padding: 3rem 5vw;
+    gap: 3rem;
   }
-  .divider {
-    width: 100%;
-    height: 1px;
-    margin: 0;
+
+  .hero {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+    gap: 28px;
   }
-  .leftPanel,
-  .rightPanel {
-    flex: unset;
-    width: 100%;
+
+  .text {
+    align-items: center;
   }
-  .techRow img {
-    width: 36px;
-    padding: 0.3rem;
+
+  .bio {
+    max-width: 600px;
+  }
+
+  .stack {
+    align-items: center;
+  }
+
+  .techRow {
+    justify-content: center;
   }
 }
 
 @media (max-width: 480px) {
-  .infoContainer {
-    padding: 1.2rem;
+  .section {
+    padding: 2.5rem 1.25rem;
+    gap: 2.5rem;
   }
-  .leftPanel h2 {
-    font-size: 1rem;
+
+  .avatarWrap {
+    width: 120px;
+    height: 120px;
   }
-  .leftPanel p {
-    font-size: 0.85rem;
+
+  .techRow {
+    gap: 10px;
+  }
+
+  .techIcon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+  }
+
+  .techIcon img {
+    width: 22px;
+    height: 22px;
+  }
+
+  .techName {
+    font-size: 0.66rem;
+  }
+}
+
+/* =========================================================
+   ACESSIBILIDADE
+   ========================================================= */
+@media (prefers-reduced-motion: reduce) {
+  .avatarWrap,
+  .eyebrow,
+  .name,
+  .name span,
+  .role,
+  .bio,
+  .stack,
+  .techItem {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .avatar,
+  .techIcon,
+  .techIcon img,
+  .techName {
+    transition: none !important;
   }
 }

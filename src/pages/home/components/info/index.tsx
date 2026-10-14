@@ -1,5 +1,7 @@
 import styles from "./styles.module.css";
 
+import avatar from "../../../../assets/icons/apexcharts.png";
+
 import htmlIcon from "../../../../assets/icons/html.png";
 import cssIcon from "../../../../assets/icons/css.png";
 import jsIcon from "../../../../assets/icons/js.png";
@@ -30,48 +32,53 @@ const technologies = [
 
 export function Info() {
   return (
-    <div className={styles.infoContainer}>
-      <div className={styles.leftPanel}>
-        <h2>Sobre mim</h2>
-        <p>
-          Estudante de Técnico em Informática pelo SENAC, com foco no
-          desenvolvimento de aplicações web, desktop e mobile. Tenho
-          experiência na criação de projetos utilizando React, Electron,
-          Node.js e bancos de dados SQL, buscando desenvolver soluções
-          completas, desde a interface até a integração com APIs e serviços.
-        </p>
+    <section className={styles.section}>
+      <div className={styles.hero}>
+        <div className={styles.avatarWrap}>
+          <img src={avatar} alt="Meu avatar" className={styles.avatar} />
+        </div>
 
-        <h3 className={styles.techTitle}>Tecnologias</h3>
+        <div className={styles.text}>
+          <span className={styles.eyebrow}>Portfólio</span>
+
+          <h1 className={styles.name}>
+            Olá, eu sou <span>Desenvolvedor</span>
+          </h1>
+
+          <p className={styles.role}>
+            Full Stack <span className={styles.sep}>·</span> Web{" "}
+            <span className={styles.sep}>·</span> Desktop{" "}
+            <span className={styles.sep}>·</span> Mobile
+          </p>
+
+          <p className={styles.bio}>
+            Estudante de Técnico em Informática pelo SENAC, apaixonado por
+            construir aplicações completas — da interface ao banco de dados.
+            Trabalho com <strong>React</strong>, <strong>Electron</strong>,{" "}
+            <strong>Node.js</strong> e bancos relacionais, sempre buscando
+            soluções práticas e bem estruturadas.
+          </p>
+        </div>
+      </div>
+
+      <div className={styles.stack}>
+        <span className={styles.stackLabel}>Stack</span>
+
         <div className={styles.techRow}>
-          {technologies.map((tech) => (
-            <img key={tech.label} src={tech.icon} alt={tech.label} title={tech.label} />
+          {technologies.map((tech, i) => (
+            <div
+              key={tech.label}
+              className={styles.techItem}
+              style={{ animationDelay: `${0.3 + i * 0.04}s` }}
+            >
+              <div className={styles.techIcon}>
+                <img src={tech.icon} alt={tech.label} />
+              </div>
+              <span className={styles.techName}>{tech.label}</span>
+            </div>
           ))}
         </div>
       </div>
-
-      <div className={styles.divider} />
-
-      <div className={styles.rightPanel}>
-        <div className={styles.block}>
-          <h3>Formação</h3>
-          <ul>
-            <li>Técnico em Informática – SENAC (2025–2026)</li>
-            <li>Ensino Médio Completo</li>
-          </ul>
-        </div>
-
-        <div className={styles.block}>
-          <h3>Habilidades</h3>
-          <ul>
-            <li>Desenvolvimento de aplicações Web com React</li>
-            <li>Desenvolvimento de aplicações Desktop com Electron</li>
-            <li>Desenvolvimento de aplicações Mobile com Capacitor</li>
-            <li>Integração com APIs e serviços</li>
-            <li>Modelagem e gerenciamento de bancos de dados SQLite e PostgreSQL</li>
-            <li>Versionamento de código com Git</li>
-          </ul>
-        </div>
-      </div>
-    </div>
+    </section>
   );
 }

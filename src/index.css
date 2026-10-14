@@ -6,25 +6,34 @@
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-html,
-body,
-#root {
 
-  --background: #0d0e12;
-  --text: #f8f8f2;
-  --surface: #181920;
-  --surface-light: #6272a4;
-  --surface-variant: #2b2d39;
-  --surface-dark: #0d0e12;
-  --surface-darker: #0a0b10;
+:root {
+  --bg:            #0e131f;
+  --bg-elevated:   #141b2a;
+  --surface:       #1a2233;
+  --surface-hover: #232d42;
 
-  --border: #2b2d39;
+  --border:        #2a3448;
+  --border-strong: #38435a;
 
-  --error: #ff5555;
-  --warning: #ffb86c;
-  --success: #f1fa8c;
-  --info: #50fa7b;
-  --primary: #8be9fd;
-  --secondary: #bd93f9;
-  --accent: #ff79c6;
+  --text:           #f1f4f9;
+  --text-secondary: #a8b2c4;
+  --text-muted:     #8b939c;
+  --text-faint:     #5b6373;
+
+  --primary:       #5b6cff;
+  --primary-hover: #7483ff;
+  --primary-soft:  rgba(91, 108, 255, 0.14);
+
+  --secondary:       #8b7fd4;
+  --secondary-hover: #a194e3;
+
+  --accent:       #ff3b5c;
+  --accent-hover: #ff5573;
+  --accent-soft:  rgba(255, 59, 92, 0.14);
+
+  --success: #3ddc97;
+  --warning: #f5b94c;
+  --error:   #ff4d6d;
+  --info:    #4dabf7;
 }

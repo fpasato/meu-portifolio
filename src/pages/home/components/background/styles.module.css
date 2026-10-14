@@ -1,0 +1,211 @@
+.bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  background: var(--bg);
+}
+
+/* =========================================================
+   AURAS AMBIENTAIS
+   ========================================================= */
+.ambient {
+  position: absolute;
+  inset: 0;
+  opacity: 0.55;
+  transition: opacity 1.2s ease;
+}
+
+.bg[data-active="true"] .ambient {
+  opacity: 0.8;
+}
+
+.aura {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(140px);
+  mix-blend-mode: screen;
+  will-change: transform;
+}
+
+.auraPrimary {
+  width: 70vmin;
+  height: 70vmin;
+  top: -18%;
+  left: -12%;
+  background: radial-gradient(
+    circle,
+    color-mix(in srgb, var(--primary) 55%, transparent) 0%,
+    transparent 70%
+  );
+  animation: drift1 42s ease-in-out infinite;
+}
+
+.auraSecondary {
+  width: 65vmin;
+  height: 65vmin;
+  bottom: -20%;
+  right: -10%;
+  background: radial-gradient(
+    circle,
+    color-mix(in srgb, var(--secondary) 48%, transparent) 0%,
+    transparent 70%
+  );
+  animation: drift2 52s ease-in-out infinite;
+}
+
+.auraAccent {
+  width: 50vmin;
+  height: 50vmin;
+  top: 50%;
+  left: 50%;
+  margin-top: -25vmin;
+  margin-left: -25vmin;
+  background: radial-gradient(
+    circle,
+    color-mix(in srgb, var(--accent) 32%, transparent) 0%,
+    transparent 70%
+  );
+  animation: drift3 64s ease-in-out infinite;
+}
+
+.svgDefs {
+  position: absolute;
+  pointer-events: none;
+}
+
+.gasLayer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  filter: url(#gas-warp);
+  mix-blend-mode: screen;
+}
+
+.puff {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  background: radial-gradient(
+    circle,
+    color-mix(in srgb, var(--c) 85%, transparent) 0%,
+    color-mix(in srgb, var(--c) 35%, transparent) 45%,
+    transparent 72%
+  );
+  transform: translate(-50%, -50%) scale(0.3);
+  opacity: 0;
+  animation: puffLife 3200ms cubic-bezier(0.2, 0.6, 0.3, 1) forwards;
+  will-change: transform, opacity;
+}
+
+@keyframes puffLife {
+  0%   { opacity: 0;    transform: translate(-50%, -50%) scale(0.3) rotate(0deg); }
+  15%  { opacity: 0.9; }
+  100% {
+    opacity: 0;
+    transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy)))
+               scale(2.2) rotate(var(--rot));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gasLayer { display: none; }
+}
+
+.bg[data-active="true"] .spotlight {
+  opacity: 0.75;
+}
+
+/* =========================================================
+   TEXTURAS
+   ========================================================= */
+.grid {
+  position: absolute;
+  inset: 0;
+  opacity: 0.4;
+  background-image: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0.055) 1px,
+    transparent 1px
+  );
+  background-size: 34px 34px;
+  mask-image: radial-gradient(
+    ellipse at center,
+    black 15%,
+    transparent 72%
+  );
+  -webkit-mask-image: radial-gradient(
+    ellipse at center,
+    black 15%,
+    transparent 72%
+  );
+}
+
+.noise {
+  position: absolute;
+  inset: 0;
+  opacity: 0.022;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 35%,
+    color-mix(in srgb, var(--bg) 75%, transparent) 100%
+  );
+}
+
+/* =========================================================
+   DRIFT
+   ========================================================= */
+@keyframes drift1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%      { transform: translate(6vw, 8vh) scale(1.08); }
+  66%      { transform: translate(-3vw, 4vh) scale(0.96); }
+}
+
+@keyframes drift2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%      { transform: translate(-7vw, -6vh) scale(1.1); }
+}
+
+@keyframes drift3 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%      { transform: translate(5vw, -5vh) scale(1.12); }
+}
+
+/* =========================================================
+   RESPONSIVO
+   ========================================================= */
+@media (max-width: 768px) {
+  .aura {
+    filter: blur(100px);
+  }
+
+  .spotlight {
+    width: 380px;
+    height: 380px;
+    filter: blur(70px);
+  }
+
+  .grid {
+    background-size: 28px 28px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aura {
+    animation: none !important;
+  }
+  .ambient,
+  .spotlight {
+    transition: none !important;
+  }
+}
