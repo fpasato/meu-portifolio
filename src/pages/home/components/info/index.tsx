@@ -1,6 +1,6 @@
 import styles from "./styles.module.css";
 
-import avatar from "../../../../assets/icons/apexcharts.png";
+import avatar from "../../../../assets/perfil/image.png";
 
 import htmlIcon from "../../../../assets/icons/html.png";
 import cssIcon from "../../../../assets/icons/css.png";
@@ -42,7 +42,7 @@ export function Info() {
           <span className={styles.eyebrow}>Portfólio</span>
 
           <h1 className={styles.name}>
-            Olá, eu sou <span>Desenvolvedor</span>
+            Olá, eu me chamo <span>Fernando</span>
           </h1>
 
           <p className={styles.role}>
