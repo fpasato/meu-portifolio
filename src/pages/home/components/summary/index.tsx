@@ -15,6 +15,8 @@ import styles from "./styles.module.css";
 import sosImage from "../../../../assets/sos/sos-bg.png";
 import wavesImage from "../../../../assets/waves/waves-bg.png";
 import lumoImage from "../../../../assets/lumo/lumo-bg.png";
+import auroraImage from "../../../../assets/aurora/1.png";
+import pataAmigaImage from "../../../../assets/pata-amiga/1.png";
 
 type Category = "exe" | "landing";
 
@@ -61,6 +63,26 @@ const projects: Project[] = [
     tags: ["Desktop", "UX"],
     category: "exe",
   },
+  {
+    title: "Aurora",
+    description: "Landing pages para cafeteria",
+    href: "https://fpasato.github.io/landing-page-aurora/",
+    image: auroraImage,
+    color: "#519922",
+    status: "Concluído",
+    tags: ["Web"],
+    category: "landing",
+  },
+  {
+    title: "Pata Amiga",
+    description: "Landing pages para petcare de animais",
+    href: "https://fpasato.github.io/aula-pata-amiga/",
+    image: pataAmigaImage,
+    color: "#995d22",
+    status: "Concluído",
+    tags: ["Web"],
+    category: "landing",
+  },
 ];
 
 const TABS: { key: Category; label: string; icon: ReactNode; soon: string }[] = [
@@ -80,10 +102,8 @@ export function Summary() {
 
   const tab = TABS.find((t) => t.key === category)!;
   const items = projects.filter((p) => p.category === category);
-
-  // último slide = "em breve" (null)
-  const slides: (Project | null)[] = [...items, null];
-  const last = slides.length - 1;
+  const slides: (Project | null)[] = items.length > 0 ? items : [null];
+  const last = slides.length - 1; 
   const current = slides[index];
 
   const go = (i: number) => setIndex(Math.max(0, Math.min(i, last)));
