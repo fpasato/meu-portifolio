@@ -1,168 +1,439 @@
-.sosProject {
+.page {
+  --primary:       #ff3b5c;
+  --primary-hover: #ff5573;
+  --primary-soft:  rgba(255, 59, 92, 0.14);
+
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 6vw 6rem;
   display: flex;
-  justify-content: center;
   flex-direction: column;
-
-  background-color: #0A0C0E;
-  color: #fff;
+  gap: clamp(2.5rem, 4vw, 3.5rem);
+  color: var(--text);
 }
 
-.sosLogo {
-  border: 1px solid #ff2626;
-  border-radius: 0.8rem;
-}
-
-.sosProjectSection {
+/* ============ HERO ============ */
+.hero {
   display: grid;
-  grid-template-columns: 0.6fr 1fr;
-  gap: 2rem;
-  padding: 2rem;
-
-  background-image: url("../../assets/sos/bg.png");
-  background-size: cover;
-  background-repeat: no-repeat;
+  grid-template-columns: 1.05fr 1fr;
+  gap: clamp(2rem, 4vw, 3.5rem);
+  align-items: center;
 }
 
-.sosProjectInfo {
+.heroInfo {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  text-align: justify;
   gap: 1rem;
-
-  & img {
-    width: 100px;
-    height: auto;
-  }
 }
 
-.sosProjectInfo h2 {
-  font-size: 4rem;
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s, gap 0.2s;
 }
 
-.sosProjectInfo p {
-  font-size: 1rem;
+.back:hover { color: var(--text); gap: 12px; }
+
+.back:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 0.5rem;
+}
+
+.logo {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  border-radius: 12px;
+  background: var(--bg-elevated);
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(1.75rem, 3.2vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1.1;
+  color: var(--text);
+}
+
+.accent { color: var(--primary); }
+
+.subtitle {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.lead {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  max-width: 52ch;
+  color: var(--text-secondary);
 }
 
 .actions {
   display: flex;
-  gap: 1rem;
-  width: 100%;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 8px;
 }
 
-.githubButton,
-.downloadButton {
-  display: flex;
+.btnPrimary,
+.btnGhost {
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-
-  padding: 1.4rem;
-  font-size: 1.2rem;
-  border-radius: 0.8rem;
-  border: 1px solid #ff2626;
+  gap: 8px;
+  padding: 10px 18px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  border-radius: 999px;
+  border: 1px solid transparent;
   cursor: pointer;
-  transition: all 0.3s ease;
   text-decoration: none;
-
-  &:hover {
-    filter: brightness(0.9);
-    transform: translateY(-2px) translateX(2px);
-  }
+  transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.2s, opacity 0.2s;
 }
 
-.githubButton {
-  background-color: #ff2626;
-  color: white;
+.btnPrimary {
+  background: var(--primary);
+  color: var(--text);
 }
 
-.downloadButton {
-  background-color: transparent;
-  color: #5a6066;
-  border: 1px solid #5a6066;
+.btnPrimary:hover {
+  background: var(--primary-hover);
+  transform: translateY(-1px);
 }
 
-.sosProjectImage {
+.btnGhost {
+  background: transparent;
+  border-color: var(--border-strong);
+  color: var(--text-muted);
+}
+
+.btnGhost:hover:not(:disabled) {
+  border-color: var(--primary);
+  color: var(--text);
+}
+
+.btnGhost:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.btnPrimary:focus-visible,
+.btnGhost:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+}
+
+.heroImage {
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--bg-elevated);
+  box-shadow: 0 40px 90px -40px rgba(0, 0, 0, 0.7);
+}
+
+.heroImage img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ============ BLOCKS ============ */
+.block {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+
+.blockHead {
   display: flex;
   align-items: center;
-  justify-content: center;
-  border-radius: 0.8rem;
-
-  & img {
-    width: 100%;
-    height: auto;
-
-  }
+  gap: 10px;
+  color: var(--primary);
 }
 
-.backButton {
-  color: #ff2626;
+.blockHead h3 {
+  margin: 0;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.blockText {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.75;
+  max-width: 72ch;
+  color: var(--text-secondary);
+}
+
+/* ============ RECURSOS ============ */
+.featureList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 14px;
+}
+
+.featureCard {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 1.25rem 1.4rem;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: var(--bg-elevated);
+  transition: border-color 0.25s;
+}
+
+.featureCard:hover {
+  border-color: color-mix(in srgb, var(--primary) 45%, var(--border));
+}
+
+.featureHead {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--primary);
+}
+
+.featureHead h4 {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: -0.01em;
+}
+
+.featureCard ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.featureCard li {
+  position: relative;
+  padding-left: 18px;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+.featureCard li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--primary);
+  opacity: 0.75;
+}
+
+/* ============ CHIPS ============ */
+.chipGrid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 10px;
+}
+
+.chip {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--bg-elevated);
+  font-size: 0.82rem;
+  color: var(--text-secondary);
   text-decoration: none;
-  margin-bottom: 2rem;
-
-  &:hover {
-    text-shadow: 0 0 10px #ff2626, 0 0 20px #ff2626, 0 0 30px #ff2626;
-  }
+  transition: border-color 0.2s, background 0.2s, color 0.2s, transform 0.2s;
 }
 
-/* ========== Responsive ========== */
+.chip img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  flex-shrink: 0;
+  filter: grayscale(0.4) brightness(0.95);
+  transition: filter 0.25s ease;
+}
 
+.chip:hover {
+  border-color: var(--primary);
+  background: var(--surface);
+  color: var(--text);
+}
 
-@media (max-width: 768px) {
+.chip:hover img {
+  filter: grayscale(0) brightness(1.1);
+}
 
-  .sosProjectSection {
+.chipLink:hover {
+  transform: translateY(-1px);
+}
+
+.chipLink:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+}
+
+/* ============ DISCLAIMER ============ */
+.disclaimer {
+  padding: 1.5rem 1.75rem;
+  border: 1px solid color-mix(in srgb, var(--primary) 40%, transparent);
+  border-radius: 14px;
+  background: var(--primary-soft);
+}
+
+.disclaimerTag {
+  display: inline-block;
+  margin-top: 4px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--primary);
+}
+
+/* ============ INTEGRAÇÕES ============ */
+.integrationGrid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 10px;
+}
+
+.integration {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--bg-elevated);
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.2s, background 0.2s, transform 0.2s;
+}
+
+.integration:hover {
+  border-color: var(--primary);
+  background: var(--surface);
+  transform: translateY(-1px);
+}
+
+.integration:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+}
+
+.integrationLogo {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  flex-shrink: 0;
+  filter: grayscale(0.3) brightness(0.95);
+  transition: filter 0.25s ease;
+}
+
+.integration:hover .integrationLogo {
+  filter: grayscale(0) brightness(1.1);
+}
+
+.integrationText {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  flex: 1;
+}
+
+.integrationBrand {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+.integrationName {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: -0.01em;
+}
+
+.integrationArrow {
+  flex-shrink: 0;
+  font-size: 0.7rem;
+  color: var(--text-faint);
+  transition: color 0.25s, transform 0.25s;
+}
+
+.integration:hover .integrationArrow {
+  color: var(--primary);
+  transform: translate(1px, -1px);
+}
+
+@media (max-width: 520px) {
+  .integrationGrid {
     grid-template-columns: 1fr;
-    display: flex;
-    flex-direction: column;
-    padding: 1.5rem 1rem;
-    gap: 1.5rem;
-
-    background-image: url("../../assets/sos/bg.png");
-    background-size: cover;
-    background-repeat: no-repeat;
-  }
-
-  .sosProjectInfo {
-    width: 100%;
-    align-items: center;
-    text-align: center;
-  }
-
-  .sosProjectInfo h2 {
-    font-size: 2.2rem;
-  }
-
-  .sosProjectInfo h4 {
-    font-size: 1.1rem;
-  }
-
-  .sosProjectInfo p {
-    font-size: 0.9rem;
-    text-align: center;
-  }
-
-  .sosProjectImage {
-    width: 100%;
-  }
-
-  .actions {
-    flex-direction: column;
-    gap: 0.8rem;
-  }
-
-  .githubButton,
-  .downloadButton {
-    width: 100%;
-    padding: 0.9rem;
-    font-size: 1rem;
   }
 }
 
-@media (max-width: 480px) {
-  .sosProjectInfo h2 {
-    font-size: 1.8rem;
-  }
+/* ============ RESPONSIVO ============ */
+@media (max-width: 860px) {
+  .hero      { grid-template-columns: 1fr; }
+  .heroImage { order: -1; }
+}
 
-  .sosProjectSection {
-    padding: 1rem 0.8rem;
-  }
+@media (max-width: 520px) {
+  .page    { padding: 2.5rem 5vw 4rem; }
+  .brand   { gap: 10px; }
+  .logo    { width: 40px; height: 40px; }
+  .actions { flex-direction: column; }
+  .btnPrimary,
+  .btnGhost { justify-content: center; }
+  .featureList,
+  .chipGrid { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .back,
+  .btnPrimary,
+  .btnGhost,
+  .chip,
+  .chip img,
+  .featureCard { transition: none; }
 }

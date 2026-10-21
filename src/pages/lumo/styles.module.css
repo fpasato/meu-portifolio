@@ -1,162 +1,272 @@
-.lumoProject {
+.page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4rem 6vw 6rem;
   display: flex;
-  justify-content: center;
   flex-direction: column;
-
-  background-color: #0A0C0E;
-  color: #fff;
+  gap: clamp(2.5rem, 4vw, 3.5rem);
+  color: var(--text);
+  background-color: var(--bg);
 }
 
-.sosLogo {
-  border: 1px solid #9472FF;
-  border-radius: 0.8rem;
-}
-
-.lumoProjectSection {
+/* ============ HERO ============ */
+.hero {
   display: grid;
-  grid-template-columns: 0.6fr 1fr;
-  gap: 2rem;
-  padding: 2rem;
-
-  background-image: url("../../assets/lumo/bg.png");
-  background-size: cover;
-  background-repeat: no-repeat;
+  grid-template-columns: 1.05fr 1fr;
+  gap: clamp(2rem, 4vw, 3.5rem);
+  align-items: center;
 }
 
-.lumoProjectInfo {
+.heroInfo {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  text-align: justify;
   gap: 1rem;
-
-  & img {
-    width: 100px;
-    height: auto;
-  }
 }
 
-.lumoProjectInfo h2 {
-  font-size: 4rem;
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s, gap 0.2s;
 }
 
-.lumoProjectInfo p {
-  font-size: 1rem;
+.back:hover {
+  color: var(--text);
+  gap: 12px;
+}
+
+.back:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 0.5rem;
+}
+
+.logo {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  border-radius: 12px;
+  background: var(--bg-elevated);
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(1.75rem, 3.2vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1.1;
+  color: var(--text);
+}
+
+.accent {
+  color: var(--secondary);
+}
+
+.subtitle {
+  margin: 0;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.lead {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  max-width: 52ch;
+  color: var(--text-secondary);
 }
 
 .actions {
   display: flex;
-  gap: 1rem;
-  width: 100%;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 8px;
 }
 
-.githubButton,
-.downloadButton {
-  display: flex;
+.btnPrimary,
+.btnGhost {
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-
-  padding: 1.4rem;
-  font-size: 1.2rem;
-  border-radius: 0.8rem;
-  border: 1px solid #9472FF;
+  gap: 8px;
+  padding: 10px 18px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  border-radius: 999px;
+  border: 1px solid transparent;
   cursor: pointer;
-  transition: all 0.3s ease;
   text-decoration: none;
-
-  &:hover {
-    filter: brightness(0.9);
-    transform: translateY(-2px) translateX(2px);
-  }
+  transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.2s, opacity 0.2s;
 }
 
-.githubButton {
-  background-color: #9472FF;
-  color: white;
-  box-shadow: 0px 0px 10px #9472FF;
+.btnPrimary {
+  background: var(--primary);
+  color: var(--text);
 }
 
-.downloadButton {
-  background-color: transparent;
-  color: #5a6066;
-  border: 1px solid #5a6066;
+.btnPrimary:hover {
+  background: var(--primary-hover);
+  transform: translateY(-1px);
 }
 
-.lumoProjectImage {
+.btnGhost {
+  background: transparent;
+  border-color: var(--border-strong);
+  color: var(--text-muted);
+}
+
+.btnGhost:hover:not(:disabled) {
+  border-color: var(--primary);
+  color: var(--text);
+}
+
+.btnGhost:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.btnPrimary:focus-visible,
+.btnGhost:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+}
+
+.heroImage {
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--bg-elevated);
+  box-shadow: 0 40px 90px -40px rgba(0, 0, 0, 0.7);
+}
+
+.heroImage img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ============ BLOCKS ============ */
+.block {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+
+.blockHead {
   display: flex;
   align-items: center;
-  justify-content: center;
-  border-radius: 0.8rem;
-
-  & img {
-    width: 100%;
-    height: auto;
-
-  }
+  gap: 10px;
+  color: var(--primary);
 }
 
-.backButton {
-  color: #9472FF;
-  text-decoration: none;
-  margin-bottom: 2rem;
-
-  &:hover {
-    text-shadow: 0 0 10px #9472FF, 0 0 20px #9472FF, 0 0 30px #9472FF;
-  }
+.blockHead h3 {
+  margin: 0;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
 }
 
-/* ========== Responsive ========== */
-@media (max-width: 768px) {
-  .lumoProjectSection {
-    grid-template-columns: 1fr;
-    display: flex;
-    flex-direction: column;
-    padding: 1.5rem 1rem;
-    gap: 1.5rem;
-  }
-
-  .lumoProjectInfo {
-    width: 100%;
-    align-items: center;
-    text-align: center;
-  }
-
-  .lumoProjectInfo h2 {
-    font-size: 2.2rem;
-  }
-
-  .lumoProjectInfo h4 {
-    font-size: 1.1rem;
-  }
-
-  .lumoProjectInfo p {
-    font-size: 0.9rem;
-    text-align: center;
-  }
-
-  .lumoProjectImage {
-    width: 100%;
-  }
-
-  .actions {
-    flex-direction: column;
-    gap: 0.8rem;
-  }
-
-  .githubButton,
-  .downloadButton {
-    width: 100%;
-    padding: 0.9rem;
-    font-size: 1rem;
-  }
+.blockText {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.75;
+  max-width: 72ch;
+  color: var(--text-secondary);
 }
 
-@media (max-width: 480px) {
-  .lumoProjectInfo h2 {
-    font-size: 1.8rem;
-  }
+.blockText p { margin: 0 0 0.75rem; }
+.blockText p:last-child { margin-bottom: 0; }
 
-  .lumoProjectSection {
-    padding: 1rem 0.8rem;
-  }
+/* ============ LISTAS ============ */
+.featureGrid,
+.techGrid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 10px;
+}
+
+.featureGrid { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+.techGrid    { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+
+.feature,
+.tech {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--bg-elevated);
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  transition: border-color 0.25s, background 0.25s, color 0.25s;
+}
+
+.feature:hover,
+.tech:hover {
+  border-color: var(--primary);
+  background: var(--surface);
+  color: var(--text);
+}
+
+.featureIcon,
+.techIcon {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  font-size: 0.95rem;
+  color: var(--primary);
+}
+
+/* ============ DISCLAIMER ============ */
+.disclaimer {
+  padding: 1.5rem 1.75rem;
+  border: 1px solid color-mix(in srgb, var(--primary) 35%, transparent);
+  border-radius: 14px;
+  background: var(--primary-soft);
+}
+
+/* ============ RESPONSIVO ============ */
+@media (max-width: 860px) {
+  .hero      { grid-template-columns: 1fr; }
+  .heroImage { order: -1; }
+}
+
+@media (max-width: 520px) {
+  .page   { padding: 2.5rem 5vw 4rem; }
+  .brand  { gap: 10px; }
+  .logo   { width: 40px; height: 40px; }
+  .actions { flex-direction: column; }
+  .btnPrimary,
+  .btnGhost { justify-content: center; }
+  .featureGrid,
+  .techGrid { grid-template-columns: 1fr; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .back,
+  .btnPrimary,
+  .btnGhost,
+  .feature,
+  .tech { transition: none; }
 }

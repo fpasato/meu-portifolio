@@ -1,0 +1,186 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  padding: 2rem 0;
+}
+
+.title {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--text-secondary);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+}
+
+.thumb {
+  position: relative;
+  padding: 0;
+  aspect-ratio: 16 / 10;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: zoom-in;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  outline: none;
+  transition: border-color 0.25s;
+}
+
+.thumb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.thumb:hover {
+  border-color: var(--primary);
+}
+
+.thumb:hover img {
+  transform: scale(1.04);
+}
+
+.thumb:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+}
+
+.more {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text);
+  background: color-mix(in srgb, var(--bg) 72%, transparent);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+/* ---------- lightbox ---------- */
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  padding: 2rem;
+  background: color-mix(in srgb, var(--bg) 90%, transparent);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  animation: fadeIn 0.25s ease;
+}
+
+.image {
+  max-width: 90vw;
+  max-height: 85vh;
+  border-radius: 12px;
+  box-shadow: 0 30px 90px -20px rgba(0, 0, 0, 0.9);
+  cursor: default;
+}
+
+.nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  font-size: 1rem;
+  cursor: pointer;
+  color: var(--text);
+  border: 1px solid var(--border-strong);
+  background: color-mix(in srgb, var(--surface) 70%, transparent);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.nav:hover {
+  background: var(--surface-hover);
+  border-color: var(--primary);
+}
+
+.nav:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+}
+
+.navLeft  { left: 1.5rem; }
+.navRight { right: 1.5rem; }
+
+.close {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  font-size: 0.9rem;
+  cursor: pointer;
+  color: var(--text);
+  border: 1px solid var(--border-strong);
+  background: color-mix(in srgb, var(--surface) 70%, transparent);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.close:hover {
+  background: var(--surface-hover);
+  border-color: var(--primary);
+}
+
+.close:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+}
+
+.counter {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-secondary);
+  background: color-mix(in srgb, var(--bg-elevated) 80%, transparent);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@media (max-width: 640px) {
+  .overlay { padding: 1rem; }
+  .nav     { width: 42px; height: 42px; }
+  .navLeft  { left: 0.75rem; }
+  .navRight { right: 0.75rem; }
+  .close    { top: 0.75rem; right: 0.75rem; width: 36px; height: 36px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .thumb img,
+  .overlay,
+  .nav,
+  .close { transition: none; animation: none; }
+}
